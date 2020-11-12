@@ -11,6 +11,7 @@ coverage/
 # production
 build/
 
+temp/
 
 # debug
 npm-debug.log*

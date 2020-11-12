@@ -1,32 +1,39 @@
 const express = require('express');
 const morgan = require('morgan');
-
-// environment variables
+const cors = require('cors');
+//require("dotenv").config();
 const config = require('./config/env');
 
 // DB connection
 const connectionDB = require('./config/db');
 
 // routes
+const productRoutes = require('./routes/productRoute');
 
 // Initializing connection to DB
 connectionDB();
 
 // Custom middleware
-//const notFoundHandler = require('./utils/middleware/notFoundHandler');
+const notFoundHandler = require('./utils/middleware/notFoundHandler');
+
+const isDevelopment = config.env === 'development';
 
 const app = express();
 
-app.use(morgan('dev'));
+if (isDevelopment) {
+  app.use(morgan('dev'));
+}
+app.use(cors());
 app.use(express.json());
 
-// 404 middleware
-//app.use(notFoundHandler);
+app.use('/api/product', productRoutes);
 
+// 404 middleware
+app.use(notFoundHandler);
+
+//const port = isDevelopment ? 5000 : 3000;
 const port = config.port || 5000;
 
-app.listen({port}, () => {
+app.listen({ port }, () => {
   console.log(`Server running on port ${port}`);
 });
-
-
