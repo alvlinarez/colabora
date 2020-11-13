@@ -26,12 +26,12 @@ if (isDevelopment) {
 app.use(cors());
 app.use(express.json());
 
-//if (!isDevelopment) {
-app.use(express.static(path.join(__dirname, '..', '..', 'dist')));
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', '..', 'dist', 'index.html'));
-});
-//}
+if (!isDevelopment) {
+  app.use(express.static(path.join(__dirname, '..', '..', 'dist')));
+  app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', '..', 'dist', 'index.html'));
+  });
+}
 
 app.use('/api/product', productRoutes);
 
@@ -40,6 +40,7 @@ app.use(notFoundHandler);
 
 const port = !isDevelopment ? 3000 : 5000;
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Server running on port ${port}`);
+// });
+app.listen(port);
