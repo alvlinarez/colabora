@@ -5,10 +5,13 @@ const fs = require('fs');
 
 exports.getProducts = async (req, res) => {
   try {
-    const products = await Product.find();
+    let products = await Product.find();
     if (!products) {
       return res.status(401).json({ error: 'No products found' });
     }
+    products = products.sort(
+      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    );
     return res.status(200).json({ products });
   } catch (e) {
     console.log(e);
@@ -17,10 +20,10 @@ exports.getProducts = async (req, res) => {
 };
 
 exports.createProduct = async (req, res) => {
-  const { name, description } = req.body;
-  if (!name || !description) {
+  const { name, description, sku } = req.body;
+  if (!name || !description || !sku) {
     return res.status(401).json({
-      error: 'Name and description are required.'
+      error: 'Name, description and sku are required.'
     });
   }
   if (!req.file) {
@@ -56,7 +59,7 @@ exports.createProduct = async (req, res) => {
           name,
           description,
           url: locationUrl,
-          sku: 'Gaaa'
+          sku
         });
         product = await product.save();
         product = product.toJSON();

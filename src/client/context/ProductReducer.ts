@@ -40,7 +40,7 @@ const ProductReducer = (
       return {
         ...state,
         productError: null,
-        products: [...state.products, action.payload],
+        products: [action.payload, ...state.products],
         productLoading: false
       };
 

@@ -18,7 +18,9 @@ const Home: React.FunctionComponent = () => {
   } = productContext;
 
   useEffect(() => {
-    getProducts();
+    if (products.length === 0) {
+      getProducts();
+    }
   }, []);
 
   return (
