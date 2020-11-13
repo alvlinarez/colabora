@@ -1,0 +1,33 @@
+.formContainer {
+  padding: 10px 20%;
+  fieldset {
+    margin-bottom: 50px;
+    .formDiv {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 30px;
+      margin-top: 20px;
+      label {
+        width: 30%;
+      }
+      input, textarea {
+        width: 70%;
+      }
+      textarea {
+        height: 100px;
+      }
+    }
+  }
+  .formButton {
+    background: #cc4d29;
+    border: none;
+    height: 40px;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 100%;
+    &:hover {
+      background: #e4461b;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.homeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .homeButton {
+    button {
+      background: #cc4d29;
+      border: none;
+      height: 30px;
+      color: #fff;
+      border-radius: 3px;
+      cursor: pointer;
+      &:hover {
+        background: #e4461b;
+      }
+    }
+  }
+}

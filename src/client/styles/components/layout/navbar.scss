@@ -1,0 +1,14 @@
+.navContainer {
+  height: 70px;
+  display: flex;
+  padding: 0 10%;
+  align-items: center;
+  position: fixed;
+  background: #fff;
+  width: 100%;
+  img {
+    position: absolute;
+    width: 200px;
+    cursor: pointer;
+  }
+}
