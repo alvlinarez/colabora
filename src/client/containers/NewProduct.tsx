@@ -6,11 +6,15 @@ import { ProductContext } from '../context/ProductContext';
 import '../styles/containers/newProduct.scss';
 
 const NewProduct: React.FC = () => {
+  // routing
   const history = useHistory();
+  // getting state from context
   const productContext = useContext(ProductContext);
-  const { products, getProducts, createProduct, productError } = productContext;
+  const { createProduct } = productContext;
 
+  // state for imageProduct
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  // state if imageProduct is empty
   const [selectedFileError, setSelectedFileError] = useState(false);
 
   const formik = useFormik({

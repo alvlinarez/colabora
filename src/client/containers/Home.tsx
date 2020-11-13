@@ -6,8 +6,10 @@ import '../styles/containers/home.scss';
 import Loader from '../components/Loader';
 
 const Home: React.FunctionComponent = () => {
+  // routing
   const history = useHistory();
 
+  // getting state from context
   const productContext = useContext(ProductContext);
 
   const {
@@ -18,6 +20,7 @@ const Home: React.FunctionComponent = () => {
   } = productContext;
 
   useEffect(() => {
+    // only make api call when page is refreshed
     if (products.length === 0) {
       getProducts();
     }
