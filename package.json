@@ -60,10 +60,10 @@
     "@babel/preset-env": "7.12.1",
     "@babel/preset-react": "7.12.5",
     "@babel/preset-typescript": "7.12.1",
-    "@babel/runtime": "7.12.5"
+    "@babel/runtime": "7.12.5",
+    "morgan": "1.10.0"
   },
   "devDependencies": {
-    "morgan": "1.10.0",
     "nodemon": "2.0.6",
     "prettier": "2.1.2",
     "webpack-dev-server": "3.11.0"
