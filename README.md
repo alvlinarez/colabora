@@ -26,7 +26,7 @@ Features:
 * `npm run dev:client` to development client environment
 * `npm run dev:server` to development server environment
 
-#### Development mode
+#### Production mode
 * Create .env file in the root with the following:<br>
     `NODE_ENV=production`<br>
     `PORT=3000`<br>
